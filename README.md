@@ -13,11 +13,37 @@
   <!-- - Dependency-2: [{dependency-2-name}]({dependency-2-license}) -->
 
 ## Features
+<table>
+<tr>
+<th colspan="2">Features</th>
+</tr>
+<tr>
+<td colspan="2">
+
 - {feature-1}
 - {feature-2}
 
+</td>
+</tr>
+<tr>
+<th>{example-1-title}</th>
+<th>{example-2-title}</th>
+</tr>
+<tr>
+<td align="center"><img src="docs/{example-1-image}" alt="{example-1-title}" width="480"></td>
+<td align="center"><img src="docs/{example-2-image}" alt="{example-2-title}" width="370"></td>
+</tr>
+</table>
+
 ## Setup
-### Dependencies
+<table>
+<tr>
+<th>Dependencies</th>
+<th>Usage</th>
+</tr>
+<tr>
+<td valign="top">
+
   - Language: [__TypeScript__](https://www.typescriptlang.org/) (strict), transpiled to JavaScript (ES modules)
   - Target: [__GNOME Shell__](https://gitlab.gnome.org/GNOME/gnome-shell) __{shell-version}__ ([GJS](https://gjs.guide/) runtime)
   - Runtime: [__Deno__](https://github.com/denoland/deno) __{deno-version}__ (development tools only, not shipped with the extension)
@@ -32,6 +58,31 @@
       - [deno check](https://docs.deno.com/runtime/reference/cli/check/) (lint plugin) and `tsc` (extension)
     - [gnome-extensions](https://gjs.guide/extensions/development/creating.html) (packing and installing, part of GNOME Shell)
     - [mutter-devkit](https://gjs.guide/extensions/development/debugging.html#running-a-nested-gnome-shell) (nested GNOME Shell for testing, optional)
+
+</td>
+<td valign="top">
+
+  - project
+    - rename the example extension first, see [Extension/README.md](Extension/README.md#renaming-the-extension)
+  - local CI
+    - `lefthook run check`
+      - Files must be first added by `git add` for `lefthook run` to detect.
+      - The commands use the `deno` from the activated `denoenv-{deno-version}`.
+      - Do not run `lefthook install`, as it would install git hooks.
+    - `deno task typecheck` (the type check of `src/`, without lefthook)
+  - local CD
+    1. `deno task build` (transpiles `src/` and copies `Extension/Recipe` into `dist/`)
+    2. `deno task pack` (creates `{extension-uuid}.shell-extension.zip`)
+    3. `deno task install` (installs the zip into `~/.local/share/gnome-shell/extensions/`)
+    4. log out and back in, then `gnome-extensions enable {extension-uuid}`
+  - testing and debugging
+    - `deno task devkit` (a nested GNOME Shell in a window, GNOME 49 and later)
+    - `deno task logs` (the GNOME Shell log, including extension errors)
+    - See [Extension/README.md](Extension/README.md) for the extension anatomy, testing, debugging and publishing.
+
+</td>
+</tr>
+</table>
 
 > 🚧
 > This project supports Linux with GNOME only, since packing, installing and testing the extension need GNOME Shell.
@@ -60,26 +111,7 @@ Deno environment (the binary, cache and tools stay inside `denoenv-{deno-version
   2. double check with `which deno` and `deno info` (shows the `DENO_DIR` location)
   3. optional, for testing in a nested GNOME Shell: install `mutter-devkit` (Fedora: `sudo dnf install mutter-devkit`, Fedora Atomic: `rpm-ostree install mutter-devkit`)
 
-### Usage
-  - project
-    - rename the example extension first, see [Extension/README.md](Extension/README.md#renaming-the-extension)
-  - local CI
-    - `lefthook run check`
-      - Files must be first added by `git add` for `lefthook run` to detect.
-      - The commands use the `deno` from the activated `denoenv-{deno-version}`.
-      - Do not run `lefthook install`, as it would install git hooks.
-    - `deno task typecheck` (the type check of `src/`, without lefthook)
-  - local CD
-    1. `deno task build` (transpiles `src/` and copies `Extension/Recipe` into `dist/`)
-    2. `deno task pack` (creates `{extension-uuid}.shell-extension.zip`)
-    3. `deno task install` (installs the zip into `~/.local/share/gnome-shell/extensions/`)
-    4. log out and back in, then `gnome-extensions enable {extension-uuid}`
-  - testing and debugging
-    - `deno task devkit` (a nested GNOME Shell in a window, GNOME 49 and later)
-    - `deno task logs` (the GNOME Shell log, including extension errors)
-    - See [Extension/README.md](Extension/README.md) for the extension anatomy, testing, debugging and publishing.
-
-#### Repository structure
+### Repository structure
 ```
 .
 ├── .github
@@ -106,10 +138,6 @@ Deno environment (the binary, cache and tools stay inside `denoenv-{deno-version
 ├── README.md                      # Project documentation
 └── tsconfig.json                  # TypeScript compiler configuration (type check and transpiling)
 ```
-
-## Example
-### {example-1-title}
-{...}
 
 <!-- 
 ## Troubleshooting
