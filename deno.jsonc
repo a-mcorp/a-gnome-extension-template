@@ -10,7 +10,7 @@
 
 {
   // Auto-generated: The version shown to users is `version-name` in Extension/Recipe/metadata.json.
-  "license": "GPL-3.0-or-later",
+  "license": "MIT-0",
 
   // Auto-generated: The `@girs` type packages and the TypeScript compiler are installed into `node_modules/`.
   "nodeModulesDir": "auto",

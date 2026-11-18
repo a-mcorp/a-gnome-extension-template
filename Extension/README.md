@@ -122,7 +122,7 @@ Extensions are published on [extensions.gnome.org](https://extensions.gnome.org/
 - the code must be readable JavaScript: no minified or obfuscated code, and TypeScript transpiled to well-formatted JavaScript
 - no excessive logging; use `console.debug()` only during development
 - no binaries, no build scripts and no unused files in the zip
-- the licence must be compatible with GPL-2.0-or-later (this template uses GPL-3.0-or-later)
+- the licence must be compatible with GPL-2.0-or-later (this template uses MIT-0, which is compatible; extensions created from it usually use GPL-3.0-or-later)
 - the developer must be able to explain the code: submissions that look AI-generated (unnecessary code, invented APIs, comments written as prompts) are rejected
 - clipboard access must be declared in the description, and no telemetry is allowed
 
