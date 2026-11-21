@@ -3,7 +3,7 @@
   "name": "Template",
   "description": "Adds an icon to the top bar, which can be hidden in the preferences.",
   "shell-version": ["51"],
-  "url": "https://github.com/a-matthew/a-gnome-extension-template",
+  "url": "https://github.com/a-mcorp/a-gnome-extension-template",
   "settings-schema": "org.gnome.shell.extensions.template",
   "gettext-domain": "template@example.com",
   "version-name": "0.1.0"

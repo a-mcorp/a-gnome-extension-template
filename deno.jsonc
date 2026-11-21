@@ -6,16 +6,16 @@
 // ================================
 
 // https://docs.deno.com/runtime/fundamentals/configuration/
-// Auto-generated: Deno has no fields for the extension's identity. Keep it in Extension/Recipe/metadata.json.
+// Deno has no fields for the extension's identity. Keep it in Extension/Recipe/metadata.json.
 
 {
-  // Auto-generated: The version shown to users is `version-name` in Extension/Recipe/metadata.json.
+  // The version shown to users is `version-name` in Extension/Recipe/metadata.json.
   "license": "MIT-0",
 
-  // Auto-generated: The `@girs` type packages and the TypeScript compiler are installed into `node_modules/`.
+  // The `@girs` type packages and the TypeScript compiler are installed into `node_modules/`.
   "nodeModulesDir": "auto",
 
-  // Auto-generated: Run with `deno task {task-name}`. `pack`, `install` and `devkit` need GNOME Shell on the host.
+  // Run with `deno task {task-name}`. `pack`, `install` and `devkit` need GNOME Shell on the host.
   "tasks": {
     "typecheck": "deno run -A npm:typescript@~6.0.3/tsc --project tsconfig.json --noEmit",
     "transpile": "deno run -A npm:typescript@~6.0.3/tsc --project tsconfig.json",
@@ -26,14 +26,14 @@
     "logs": "journalctl --follow --output=cat /usr/bin/gnome-shell"
   },
 
-  // Auto-generated: Type definitions for GJS and GNOME Shell (pin `@girs/gnome-shell` to the newest supported `shell-version`), and the TypeScript compiler. Versions are pinned in `deno.lock`.
+  // Type definitions for GJS and GNOME Shell (pin `@girs/gnome-shell` to the newest supported `shell-version`), and the TypeScript compiler. Versions are pinned in `deno.lock`.
   "imports": {
     "@girs/gjs": "npm:@girs/gjs@^5.6.0",
     "@girs/gnome-shell": "npm:@girs/gnome-shell@^51.0.1",
     "typescript": "npm:typescript@~6.0.3"
   },
 
-  // Auto-generated: Linter settings, used by `deno lint`. The `gnome` plugin enforces GNOME Shell rules (see lint/gnome.ts).
+  // Linter settings, used by `deno lint`. The `gnome` plugin enforces GNOME Shell rules (see lint/gnome.ts).
   "lint": {
     "plugins": ["./lint/gnome.ts"],
     "rules": {
@@ -51,7 +51,7 @@
     "exclude": ["dist/", "node_modules/"]
   },
 
-  // Auto-generated: Formatter settings (Deno style defaults), used by `deno fmt`. The transpiled `dist/` is formatted by `deno task build`.
+  // Formatter settings (Deno style defaults), used by `deno fmt`. The transpiled `dist/` is formatted by `deno task build`.
   "fmt": {
     "lineWidth": 80,
     "indentWidth": 2,

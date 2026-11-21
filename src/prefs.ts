@@ -5,7 +5,7 @@ import {
   gettext as _,
 } from "resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js";
 
-// Auto-generated: Runs in a separate preferences process (GTK 4 and libadwaita), opened from the Extensions app.
+// Runs in a separate preferences process (GTK 4 and libadwaita), opened from the Extensions app.
 export default class TemplatePreferences extends ExtensionPreferences {
   override fillPreferencesWindow(
     window: Adw.PreferencesWindow,
@@ -28,7 +28,7 @@ export default class TemplatePreferences extends ExtensionPreferences {
     pageGeneral.add(groupAppearance);
     window.add(pageGeneral);
 
-    // Auto-generated: Binds the switch to the GSettings key, so changes are saved and applied immediately.
+    // Binds the switch to the GSettings key, so changes are saved and applied immediately.
     settings.bind(
       "show-indicator",
       rowIndicator,

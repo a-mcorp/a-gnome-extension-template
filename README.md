@@ -1,4 +1,4 @@
-<sup>This project has been generated using ['A-GNOME-Extension-Template' (AGET)](https://github.com/a-matthew/a-gnome-extension-template).</sup>
+<sup>This project has been generated using ['A-GNOME-Extension-Template' (AGET)](https://github.com/a-mcorp/a-gnome-extension-template).</sup>
 
 # {project-name}
 

@@ -7,7 +7,7 @@ import {
   gettext as _,
 } from "resource:///org/gnome/shell/extensions/extension.js";
 
-// Auto-generated: Runs inside the GNOME Shell process. Create everything in enable() and undo all of it in disable().
+// Runs inside the GNOME Shell process. Create everything in enable() and undo all of it in disable().
 export default class TemplateExtension extends Extension {
   private indicator: PanelMenu.Button | null = null;
   private settings: Gio.Settings | null = null;

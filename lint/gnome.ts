@@ -8,7 +8,7 @@
 // https://docs.deno.com/runtime/reference/lint_plugins/
 // https://gjs.guide/extensions/review-guidelines/review-guidelines.html
 
-// Auto-generated: Libraries that conflict with GTK, so they are only allowed in the GNOME Shell process.
+// Libraries that conflict with GTK, so they are only allowed in the GNOME Shell process.
 const modulesShell = [
   "gi://Clutter",
   "gi://Meta",
@@ -16,12 +16,12 @@ const modulesShell = [
   "gi://Shell",
   "gi://St",
 ];
-// Auto-generated: Libraries that conflict with Clutter, so they are only allowed in the preferences process.
+// Libraries that conflict with Clutter, so they are only allowed in the preferences process.
 const modulesPreferences = ["gi://Adw", "gi://Gdk", "gi://Gtk"];
 
 type ProcessName = "shell" | "preferences" | "shared";
 
-// Auto-generated: `prefs.ts` and files in a `prefs/` folder run in the preferences process, files in a `shared/` folder in both.
+// `prefs.ts` and files in a `prefs/` folder run in the preferences process, files in a `shared/` folder in both.
 function processNameDetect(fileName: string): ProcessName {
   if (/(^|\/)shared\//.test(fileName)) return "shared";
   if (/(^|\/)prefs(\.ts$|\/)/.test(fileName)) return "preferences";
