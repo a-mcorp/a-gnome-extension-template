@@ -1,0 +1,63 @@
+// ================================
+// Name: 'a-gnome-extension-template'/deno.jsonc
+// Author: 'a-matthew'/Mateusz A.
+// Year: 2026
+// Comments: This project can be built and installed using the example extension information.
+// ================================
+
+// https://docs.deno.com/runtime/fundamentals/configuration/
+// Deno has no fields for the extension's identity. Keep it in Extension/Recipe/metadata.json.
+
+{
+  // The version shown to users is `version-name` in Extension/Recipe/metadata.json.
+  "license": "MIT-0",
+
+  // The `@girs` type packages and the TypeScript compiler are installed into `node_modules/`.
+  "nodeModulesDir": "auto",
+
+  // Run with `deno task {task-name}`. `pack`, `install` and `devkit` need GNOME Shell on the host.
+  "tasks": {
+    "typecheck": "deno run -A npm:typescript@~6.0.3/tsc --project tsconfig.json --noEmit",
+    "transpile": "deno run -A npm:typescript@~6.0.3/tsc --project tsconfig.json",
+    "build": "rm -rf dist && deno task transpile && cp -r Extension/Recipe/* dist/ && deno fmt --no-config dist",
+    "pack": "deno task build && gnome-extensions pack dist --force --out-dir=.",
+    "install": "gnome-extensions install --force *.shell-extension.zip",
+    "devkit": "dbus-run-session gnome-shell --devkit --wayland",
+    "logs": "journalctl --follow --output=cat /usr/bin/gnome-shell"
+  },
+
+  // Type definitions for GJS and GNOME Shell (pin `@girs/gnome-shell` to the newest supported `shell-version`), and the TypeScript compiler. Versions are pinned in `deno.lock`.
+  "imports": {
+    "@girs/gjs": "npm:@girs/gjs@^5.6.0",
+    "@girs/gnome-shell": "npm:@girs/gnome-shell@^51.0.1",
+    "typescript": "npm:typescript@~6.0.3"
+  },
+
+  // Linter settings, used by `deno lint`. The `gnome` plugin enforces GNOME Shell rules (see lint/gnome.ts).
+  "lint": {
+    "plugins": ["./lint/gnome.ts"],
+    "rules": {
+      "tags": ["recommended"],
+      "include": [
+        "camelcase",
+        "eqeqeq",
+        "explicit-function-return-type",
+        "explicit-module-boundary-types",
+        "no-eval",
+        "no-throw-literal",
+        "default-param-last"
+      ]
+    },
+    "exclude": ["dist/", "node_modules/"]
+  },
+
+  // Formatter settings (Deno style defaults), used by `deno fmt`. The transpiled `dist/` is formatted by `deno task build`.
+  "fmt": {
+    "lineWidth": 80,
+    "indentWidth": 2,
+    "useTabs": false,
+    "singleQuote": false,
+    "semiColons": true,
+    "exclude": ["dist/", "node_modules/", "**/*.md"]
+  }
+}
