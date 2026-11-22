@@ -1,6 +1,7 @@
 // ================================
 // Name: 'a-gnome-extension-template'/lint/gnome.ts
-// Author: 'a-matthew'/Mateusz A.
+// Source: https://github.com/a-mcorp/a-gnome-extension-template
+// SPDX-License-Identifier: MIT-0
 // Year: 2026
 // Comments: A `deno lint` plugin with rules from the GNOME Shell extension review guidelines.
 // ================================
