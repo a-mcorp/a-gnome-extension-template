@@ -16,6 +16,12 @@ Template
 ### Security
 -->
 
+## [1.0.1] - 2026-11-22
+
+### Fixed
+- File headers in `deno.jsonc`, `lefthook.yml` and `lint/gnome.ts` name the file, its source repository under 'a-mcorp', its licence as an SPDX identifier and the year, instead of the author's name - missing from 1.0.0.
+- The 1.0.0 entry in `CHANGELOG.md` describes the first release: the never-released 1.1.0 and the prototyping 1.0.0 are folded into one `[1.0.0]`.
+
 ## [1.0.0] - 2026-11-22
 
 ### Added
@@ -50,5 +56,4 @@ Template
 - Template conventions
   - Standardised kebab-case placeholder names (`{project-*}`, `{author-*}`, `{dependency-N-*}`, `{deno-*}`, `{extension-*}`, `{shell-version}`) across all template files; the example extension `template@example.com` builds and installs without changes.
   - Based on 'A-TypeScript-Template' (ATT), with the AppImage packaging replaced by GNOME Shell extension packaging.
-  - File headers in source code and configuration with the file's name, its source repository under 'a-mcorp', its licence as an SPDX identifier and the year.
   - Compatibility with 'a-skills'.
