@@ -16,21 +16,13 @@ Template
 ### Security
 -->
 
-## [1.1.0] - 2026-11-21
+## [1.0.1] - 2026-11-22
 
-### Added
-- `docs/.gitkeep`, so the `docs/` folder for the README's screenshots exists in every copy of the template.
+### Fixed
+- File headers in `deno.jsonc`, `lefthook.yml` and `lint/gnome.ts` name the file, its source repository under 'a-mcorp', its licence as an SPDX identifier and the year, instead of the author's name - missing from 1.0.0.
+- The 1.0.0 entry in `CHANGELOG.md` describes the first release: the never-released 1.1.0 and the prototyping 1.0.0 are folded into one `[1.0.0]`.
 
-### Changed
-- Licence changed from GPL-3.0-or-later to MIT No Attribution (MIT-0), so extensions created from the template choose their own licence (MIT-0 stays compatible with the extensions.gnome.org rules); `README.md`, `Extension/README.md` and `deno.jsonc` follow it.
-- `README.md` layout
-  - Features and two example screenshots combined in one table: the features span the full width, with the screenshots side by side below (`{example-N-title}` and `{example-N-image}` placeholders, images in `docs/`).
-  - Dependencies and Usage placed side by side in a two-column table, keeping their list formatting; the separate Example section was removed, and Repository structure became a level 3 heading.
-- Links to the repositories point to the 'a-mcorp' organisation on GitHub.
-- Comments no longer carry the "Auto-generated:" prefix, as they have been reviewed.
-- `.github/pull_request_template.md` and `PULL_REQUEST_TEMPLATE/Default.md`: a checkbox in the Comments section marks when an assistant helped to write the changes.
-
-## [1.0.0] - 2026-11-15
+## [1.0.0] - 2026-11-22
 
 ### Added
 - Project setup
@@ -39,7 +31,7 @@ Template
   - `deno.jsonc` with tasks (`typecheck`, `transpile`, `build`, `pack`, `install`, `devkit`, `logs`) and an import map with the `@girs/gjs` and `@girs/gnome-shell` type definitions and the TypeScript compiler, installed into `node_modules/`.
   - `deno.lock` with the pinned dependency versions.
   - Deno, TypeScript and GNOME Shell extension `.gitignore`, covering Node.js compatibility, coverage, packed extensions and compiled schemas and translations.
-  - `LICENSE` (GPL-3.0), compatible with the extensions.gnome.org licensing rules.
+  - `LICENSE` (MIT No Attribution, MIT-0), so extensions created from the template choose their own licence; compatible with the extensions.gnome.org licensing rules.
 - TypeScript to JavaScript
   - `tsconfig.json` for `tsc` 6.0 run through Deno, transpiling `src/` into readable ES modules in `dist/`, with the `gi://` and `resource://` imports kept as they are.
   - `src/ambient.d.ts` with the GJS and GNOME Shell type definitions.
@@ -50,14 +42,16 @@ Template
   - `deno lint` plugin `lint/gnome.ts` with GNOME Shell rules: `gnome/process-imports` (no GTK libraries in the GNOME Shell process and no GNOME Shell libraries in the preferences process), `gnome/disable-sync` (no async `disable()`) and `gnome/no-legacy-imports` (no pre-GNOME 45 `imports` object).
 - Packaging (local CD)
   - GNOME Shell extension recipe in `Extension/Recipe`: `metadata.json`, `stylesheet.css` and a GSettings schema in `schemas/`, copied into `dist/` by `deno task build`.
+  - `metadata.json` points to the template's repository under the 'a-mcorp' organisation.
   - Packing and installing with `gnome-extensions`, testing in a nested GNOME Shell (`mutter-devkit`) and following the GNOME Shell log.
 - Documentation
-  - `README.md` with Metadata, Features, Setup (Dependencies, Installation, Usage, Repository structure), Example and a commented-out Troubleshooting section.
+  - `README.md` with Metadata, Features (one table with the features and two example screenshots), Setup (Dependencies and Usage side by side, Installation, Repository structure) and a commented-out Troubleshooting section; links point to the 'a-mcorp' organisation.
+  - `docs/` for the README's screenshots, kept in every copy by `docs/.gitkeep`.
   - `Extension/README.md` guide: extension anatomy, `metadata.json` fields, the GNOME Shell and preferences processes, lifecycle rules, TypeScript to JavaScript, settings, translations, renaming the example extension, building, testing, debugging and publishing on extensions.gnome.org.
   - `CHANGELOG.md` and its template `.github/CHANGELOG_TEMPLATE/CHANGELOG.md`, based on Keep a Changelog.
   - `TO-DO.md`.
 - GitHub repository templates
-  - Default pull request template `.github/pull_request_template.md` and `.github/PULL_REQUEST_TEMPLATE/Default.md`.
+  - Default pull request template `.github/pull_request_template.md` and `.github/PULL_REQUEST_TEMPLATE/Default.md`, with a checkbox for changes written with the help of an assistant.
   - `.github/CODEOWNERS`, its template `.github/CODEOWNERS_TEMPLATE/CODEOWNERS` and the GitHub sample `.github/CODEOWNERS_TEMPLATE/CODEOWNERS_SCHEMA`.
 - Template conventions
   - Standardised kebab-case placeholder names (`{project-*}`, `{author-*}`, `{dependency-N-*}`, `{deno-*}`, `{extension-*}`, `{shell-version}`) across all template files; the example extension `template@example.com` builds and installs without changes.

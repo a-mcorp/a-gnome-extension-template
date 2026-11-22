@@ -1,6 +1,7 @@
 // ================================
 // Name: 'a-gnome-extension-template'/deno.jsonc
-// Author: 'a-matthew'/Mateusz A.
+// Source: https://github.com/a-mcorp/a-gnome-extension-template
+// SPDX-License-Identifier: MIT-0
 // Year: 2026
 // Comments: This project can be built and installed using the example extension information.
 // ================================
